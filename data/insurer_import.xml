@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<insurerData>
+    <insurer>
+        <insurerId>1</insurerId>
+        <insurerName>Phoenix Insurance</insurerName>
+        <xmlFile>monthly_policy_sync.xml</xmlFile>
+        <exportDate>2026-06-01</exportDate>
+    </insurer>
+
+    <policies>
+        <policy>
+            <policyNumber>POL-1001</policyNumber>
+            <insuranceType>Vehicle</insuranceType>
+            <status>Active</status>
+            <amount>5000</amount>
+        </policy>
+
+        <policy>
+            <policyNumber>POL-1002</policyNumber>
+            <insuranceType>Home</insuranceType>
+            <status>Active</status>
+            <amount>3500</amount>
+        </policy>
+
+        <policy>
+            <policyNumber>POL-1003</policyNumber>
+            <insuranceType>Health</insuranceType>
+            <status>Suspended</status>
+            <amount>7000</amount>
+        </policy>
+    </policies>
+</insurerData>
