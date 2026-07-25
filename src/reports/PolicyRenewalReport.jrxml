@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jasperReport
+        xmlns="http://jasperreports.sourceforge.net/jasperreports"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://jasperreports.sourceforge.net/jasperreports
+        http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+        name="PolicyRenewalReport"
+        pageWidth="595"
+        pageHeight="842"
+        columnWidth="535"
+        leftMargin="30"
+        rightMargin="30"
+        topMargin="20"
+        bottomMargin="20"
+        whenNoDataType="AllSectionsNoDetail">
+
+    <!-- ========================= -->
+    <!-- Report Parameters         -->
+    <!-- ========================= -->
+
+    <parameter
+            name="reportTitle"
+            class="java.lang.String"/>
+
+    <parameter
+            name="generationDate"
+            class="java.lang.String"/>
+
+    <!-- ========================= -->
+    <!-- PolicyRenewal Fields      -->
+    <!-- ========================= -->
+
+    <field
+            name="policyNumber"
+            class="java.lang.String"/>
+
+    <field
+            name="renewalVersion"
+            class="java.lang.Integer"/>
+
+    <field
+            name="clientId"
+            class="java.lang.Integer"/>
+
+    <field
+            name="agentId"
+            class="java.lang.Integer"/>
+
+    <field
+            name="insuranceType"
+            class="java.lang.String"/>
+
+    <field
+            name="insurerId"
+            class="java.lang.Integer"/>
+
+    <field
+            name="paymentFrequency"
+            class="java.lang.String"/>
+
+    <field
+            name="oldStartDate"
+            class="java.time.LocalDate"/>
+
+    <field
+            name="oldExpirationDate"
+            class="java.time.LocalDate"/>
+
+    <field
+            name="oldAmount"
+            class="java.lang.Double"/>
+
+    <field
+            name="newStartDate"
+            class="java.time.LocalDate"/>
+
+    <field
+            name="newExpirationDate"
+            class="java.time.LocalDate"/>
+
+    <field
+            name="newAmount"
+            class="java.lang.Double"/>
+
+    <field
+            name="coverageDetails"
+            class="java.lang.String"/>
+
+    <field
+            name="insurerSupported"
+            class="java.lang.Boolean"/>
+
+    <field
+            name="coveredItemChanged"
+            class="java.lang.Boolean"/>
+
+    <field
+            name="renewalStatus"
+            class="java.lang.String"/>
+
+    <field
+            name="remarks"
+            class="java.lang.String"/>
+
+    <!-- ========================= -->
+    <!-- Title                     -->
+    <!-- ========================= -->
+
+    <title>
+        <band height="85">
+
+            <textField>
+                <reportElement
+                        x="0"
+                        y="0"
+                        width="535"
+                        height="32"/>
+
+                <textElement textAlignment="Center">
+                    <font
+                            fontName="SansSerif"
+                            size="20"
+                            isBold="true"/>
+                </textElement>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $P{reportTitle}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="10"
+                        y="44"
+                        width="155"
+                        height="20"/>
+
+                <textElement>
+                    <font
+                            fontName="SansSerif"
+                            size="10"
+                            isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Report generation date:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="44"
+                        width="250"
+                        height="20"/>
+
+                <textElement>
+                    <font
+                            fontName="SansSerif"
+                            size="10"/>
+                </textElement>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $P{generationDate}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <line>
+                <reportElement
+                        x="10"
+                        y="73"
+                        width="515"
+                        height="1"/>
+            </line>
+
+        </band>
+    </title>
+
+    <!-- ========================= -->
+    <!-- Report Body               -->
+    <!-- ========================= -->
+
+    <detail>
+        <band height="650">
+
+            <!-- General Policy Information -->
+
+            <staticText>
+                <reportElement
+                        x="10"
+                        y="5"
+                        width="300"
+                        height="24"/>
+
+                <textElement>
+                    <font
+                            fontName="SansSerif"
+                            size="13"
+                            isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[General Policy Information]]>
+                </text>
+            </staticText>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="38"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font
+                            fontName="SansSerif"
+                            size="10"
+                            isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Policy number:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="38"
+                        width="320"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{policyNumber}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="63"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Insurance type:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="63"
+                        width="320"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{insuranceType}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="88"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Client ID:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="88"
+                        width="120"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    String.valueOf($F{clientId})
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="305"
+                        y="88"
+                        width="95"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Agent ID:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="405"
+                        y="88"
+                        width="100"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    String.valueOf($F{agentId})
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="113"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Insurer ID:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="113"
+                        width="120"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    String.valueOf($F{insurerId})
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="305"
+                        y="113"
+                        width="95"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Version:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="405"
+                        y="113"
+                        width="100"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    String.valueOf($F{renewalVersion})
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <!-- Policy Period -->
+
+            <staticText>
+                <reportElement
+                        x="10"
+                        y="151"
+                        width="300"
+                        height="24"/>
+
+                <textElement>
+                    <font
+                            size="13"
+                            isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Policy Period]]>
+                </text>
+            </staticText>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="184"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Old start date:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="184"
+                        width="120"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{oldStartDate} == null
+                    ? "Not available"
+                    : $F{oldStartDate}.toString()
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="305"
+                        y="184"
+                        width="115"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Old expiration:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="425"
+                        y="184"
+                        width="100"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{oldExpirationDate} == null
+                    ? "Not available"
+                    : $F{oldExpirationDate}.toString()
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="209"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[New start date:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="209"
+                        width="120"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{newStartDate} == null
+                    ? "Not yet defined"
+                    : $F{newStartDate}.toString()
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="305"
+                        y="209"
+                        width="115"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[New expiration:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="425"
+                        y="209"
+                        width="100"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{newExpirationDate} == null
+                    ? "Not yet defined"
+                    : $F{newExpirationDate}.toString()
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <!-- Renewal Amount -->
+
+            <staticText>
+                <reportElement
+                        x="10"
+                        y="247"
+                        width="300"
+                        height="24"/>
+
+                <textElement>
+                    <font
+                            size="13"
+                            isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Renewal Amount]]>
+                </text>
+            </staticText>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="280"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Old amount:]]>
+                </text>
+            </staticText>
+
+            <textField pattern="#,##0.00">
+                <reportElement
+                        x="170"
+                        y="280"
+                        width="120"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{oldAmount}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="305"
+                        y="280"
+                        width="115"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[New amount:]]>
+                </text>
+            </staticText>
+
+            <textField pattern="#,##0.00">
+                <reportElement
+                        x="425"
+                        y="280"
+                        width="100"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{newAmount}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="305"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Payment frequency:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="305"
+                        width="320"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{paymentFrequency} == null
+                    ? "Not available"
+                    : $F{paymentFrequency}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <!-- Coverage -->
+
+            <staticText>
+                <reportElement
+                        x="10"
+                        y="343"
+                        width="300"
+                        height="24"/>
+
+                <textElement>
+                    <font
+                            size="13"
+                            isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Coverage and Renewal Validation]]>
+                </text>
+            </staticText>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="376"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Coverage details:]]>
+                </text>
+            </staticText>
+
+            <textField isStretchWithOverflow="true">
+                <reportElement
+                        x="170"
+                        y="376"
+                        width="335"
+                        height="40"/>
+
+                <textElement verticalAlignment="Top"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{coverageDetails} == null
+                    ? "No coverage details"
+                    : $F{coverageDetails}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="426"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Insurer supported:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="426"
+                        width="120"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    Boolean.TRUE.equals($F{insurerSupported})
+                    ? "Yes"
+                    : "No"
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="305"
+                        y="426"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Covered item changed:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="455"
+                        y="426"
+                        width="70"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    Boolean.TRUE.equals($F{coveredItemChanged})
+                    ? "Yes"
+                    : "No"
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <!-- Status -->
+
+            <staticText>
+                <reportElement
+                        x="10"
+                        y="464"
+                        width="300"
+                        height="24"/>
+
+                <textElement>
+                    <font
+                            size="13"
+                            isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Renewal Status]]>
+                </text>
+            </staticText>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="497"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Current status:]]>
+                </text>
+            </staticText>
+
+            <textField>
+                <reportElement
+                        x="170"
+                        y="497"
+                        width="335"
+                        height="20"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{renewalStatus} == null
+                    ? "Pending"
+                    : $F{renewalStatus}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement
+                        x="20"
+                        y="527"
+                        width="145"
+                        height="20"/>
+
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+
+                <text>
+                    <![CDATA[Remarks:]]>
+                </text>
+            </staticText>
+
+            <textField isStretchWithOverflow="true">
+                <reportElement
+                        x="170"
+                        y="527"
+                        width="335"
+                        height="55"/>
+
+                <textElement verticalAlignment="Top"/>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    $F{remarks} == null
+                    || $F{remarks}.trim().isEmpty()
+                    ? "No remarks were entered."
+                    : $F{remarks}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+            <line>
+                <reportElement
+                        x="10"
+                        y="610"
+                        width="515"
+                        height="1"/>
+            </line>
+
+        </band>
+    </detail>
+
+    <!-- ========================= -->
+    <!-- Page Footer               -->
+    <!-- ========================= -->
+
+    <pageFooter>
+        <band height="25">
+
+            <textField>
+                <reportElement
+                        x="200"
+                        y="3"
+                        width="135"
+                        height="18"/>
+
+                <textElement textAlignment="Center">
+                    <font size="9"/>
+                </textElement>
+
+                <textFieldExpression>
+                    <![CDATA[
+                    "Page " + $V{PAGE_NUMBER}
+                    ]]>
+                </textFieldExpression>
+            </textField>
+
+        </band>
+    </pageFooter>
+
+</jasperReport>

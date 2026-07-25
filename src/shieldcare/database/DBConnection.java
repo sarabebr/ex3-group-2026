@@ -13,14 +13,25 @@ public class DBConnection {
             "jdbc:ucanaccess://" + DB_PATH;
 
     public static Connection getConnection() throws SQLException {
+
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("UCanAccess driver not found.", e);
+        }
+
         return DriverManager.getConnection(URL);
     }
 
     public static void testConnection() {
+
         try (Connection conn = getConnection()) {
+
             System.out.println("Database connected successfully.");
             System.out.println("Database path: " + DB_PATH);
+
         } catch (SQLException e) {
+
             System.out.println("Database connection failed.");
             System.out.println(e.getMessage());
         }

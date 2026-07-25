@@ -3,11 +3,13 @@ package shieldcare;
 import shieldcare.boundary.XMLImportScreen;
 import shieldcare.boundary.ClaimHandlingScreen;
 import shieldcare.boundary.ReimbursementScreen;
+import shieldcare.boundary.PolicyRenewalReportScreen;
 import shieldcare.database.DBConnection;
 
 import javax.swing.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import net.sf.jasperreports.engine.JasperCompileManager;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,6 +35,10 @@ public class Main {
 
             ReimbursementScreen reimbursementScreen = new ReimbursementScreen();
             reimbursementScreen.displayReimbursementScreen();
+            PolicyRenewalReportScreen renewalScreen =
+                    new PolicyRenewalReportScreen();
+
+            renewalScreen.displayPolicyRenewalReportScreen();
 
         } catch (Exception e) {
             e.printStackTrace();
