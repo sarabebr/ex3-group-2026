@@ -1,45 +1,70 @@
-# ShieldCare ECB Java Implementation
+# ShieldCare – Assignment 3
 
-## Project Description
-This project implements the ECB design class diagram for the ShieldCare insurance agency management system.
+## Policy Renewal Report Generation
 
-The implementation focuses on:
-1. XML import from external insurer systems
-2. Policy synchronization
-3. Claim handling
-4. Reimbursement management
+This project implements Assignment 3 for the ShieldCare insurance management system.
+
+The implementation extends the existing ShieldCare ECB architecture by adding a Policy Renewal Report generation module using JasperReports.
+
+## Main Features
+
+- Policy Renewal Report generation
+- Policy renewal validation
+- Renewal amount calculation
+- Renewal recommendations
+- JasperReports PDF generation
+- Microsoft Access database integration
 
 ## Architecture
-The project follows the Entity-Control-Boundary architectural pattern.
+
+The project follows the Entity–Control–Boundary (ECB) architectural pattern.
 
 ### Boundary Classes
-- XMLImportScreen
-- ClaimHandlingScreen
-- ReimbursementScreen
+- PolicyRenewalReportScreen
 
 ### Control Classes
-- XMLImportController
+- PolicyRenewalReportController
+- PolicyRenewalValidationController
+- RenewalAmountController
 - PolicySyncController
-- ClaimHandlingController
-- ReimbursementController
+- JasperReportGenerator
 
 ### Entity Classes
-- Client
+- PolicyRenewalReport
+- PolicyRenewal
 - Policy
-- Claim
-- ClaimDocument
-- ClaimForm
-- Payment
-- Reimbursement
+- Client
+- Employee
 - Insurer
-- XMLImportLog
-- ImportedPolicyRecord
-- ImportedClaimRecord
-- ThirdPartyInteraction
-- DamageReport
+- Car
 
-## How to Run
+## Technologies
+
+- Java
+- Microsoft Access
+- UCanAccess
+- JasperReports 6.21.3
+
+## Project Structure
+
+```
+src/
+data/
+lib/
+reports/
+```
+
+ How to Run
+
 Run the executable JAR file:
 
 ```bash
 java -jar ShieldCareECB.jar
+```
+
+## Group
+
+Group#2026
+
+University of Haifa  
+Department of Information Systems
